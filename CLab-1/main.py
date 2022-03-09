@@ -10,6 +10,26 @@ from source import low_rank_approx, constrained_LLS
 
 ### Some example tests are provided below for your convenience ###
 
+def low_rank_approx(A, k):
+
+    u.s.vt=np,linalg.svd(A)
+    u_new=u[:,:k]
+    s_new=np.diag(s[:k])
+    vt_new=vt[:k]
+    X=u_new@s_new@vt_new
+    return X
+
+def constrained_LLS(A, B):
+    esp=0.0000001
+    u,s,vt=np.linalg.svd(B)
+    s+=esp
+    s1=np.diag(s)
+    temp_matrix=sl@vt
+    new_matrix=A@temp_matrix.T
+    u2,s2,vt2=np.linalg.svd(new_matrix)
+    x=vt@s1@vt2[-1]
+    return x
+    
 eps = 0.0001
 
 I3 = np.eye(3)
