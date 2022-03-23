@@ -21,7 +21,7 @@ The steps in your code are:
 1. Load the input distance matrix
 2. Run MDS
 
-### 2. Procrustes Analysis (difficulty: :star: :star: :star :star:)
+### 2. Procrustes Analysis (difficulty: :star: :star: :star: :star:)
 
 Following the previous example, align (overlay) the computed 12 cities with a map of Australia, visually compare your estimated city locations with the ground-truth city locations. (To achieve the correct alignment, you may need to rotate, flip, translate, and re-scale your computed coordinates.)
 
@@ -29,29 +29,25 @@ The steps in your code are:
 1. Align the computed locations so that they match the actual map
 2. Plot the map, and overlay with your aligned cities, with the city name next to each city
 
-HINT: To perform this alignment, you need to perform an orthogonal procrustes analysis (check the link in the code for more details).The simplest algebraic statement of a Procrustes problem seeks a matrix $T$, that minimises,
+HINT: To perform this alignment, you need to perform an orthogonal procrustes analysis (check the link in the code for more details).The simplest algebraic statement of a Procrustes problem seeks a matrix <img src="https://render.githubusercontent.com/render/math?math=T">, that minimises,
 
-$
-Q^{opt}=\arg_{\{Q|Q^{-1}=Q^T\}}\min\||X_1Q - X_2||^2_F
-$
+<img src="https://render.githubusercontent.com/render/math?math=Q^{opt}=\arg_{\{Q|Q^{-1}=Q^T\}}\min\||X_1Q - X_2||^2_F">
 
-over $Q\in R^{p_1xp_2}$, for given $X_1\in R^{nxp_1}$, $X_2\in R^{nxp_2}$, where in our case $T$ is the orthogonal matrix $Q$. $X_1$ is the matrix to be matched into the reference matrix $X_2$.
+over <img src="https://render.githubusercontent.com/render/math?math=Q\in R^{p_1xp_2}">, for given <img src="https://render.githubusercontent.com/render/math?math=X_1\in R^{nxp_1}">, <img src="https://render.githubusercontent.com/render/math?math=X_2\in R^{nxp_2}">, where in our case <img src="https://render.githubusercontent.com/render/math?math=T"> is the orthogonal matrix <img src="https://render.githubusercontent.com/render/math?math=Q">. <img src="https://render.githubusercontent.com/render/math?math=X_1"> is the matrix to be matched into the reference matrix <img src="https://render.githubusercontent.com/render/math?math=X_2">.
 
-$Q$ refers to the matrix's rotation. To perform scaling and rotation, we need to solve a more elaborate problem,
+<img src="https://render.githubusercontent.com/render/math?math=Q"> refers to the matrix's rotation. To perform scaling and rotation, we need to solve a more elaborate problem,
 
-$
-(Q^{opt}, s^{opt}) =\arg_{\{(Q, s)|Q^{-1}=Q^T\}}\min\||sX_1Q - X_2||^2_F
-$
+<img src="https://render.githubusercontent.com/render/math?math=(Q^{opt}, s^{opt}) =\arg_{\{(Q, s)|Q^{-1}=Q^T\}}\min\||sX_1Q - X_2||^2_F">
 
 and finally, the translation could be expressed as follows,
 
-$t = \mu_{X_2} - s^{opt} \mu_{X_1}Q^{opt} $
+<img src="https://render.githubusercontent.com/render/math?math=t = \mu_{X_2} - s^{opt} \mu_{X_1}Q^{opt}">
 
-Both matrices $X_1, X_2$ should be zero-centered and with unit norms. This should work as a pre-scaling step.
+Both matrices <img src="https://render.githubusercontent.com/render/math?math=X_1, X_2"> should be zero-centered and with unit norms. This should work as a pre-scaling step.
 
-The final transformation $Z$ should be
+The final transformation <img src="https://render.githubusercontent.com/render/math?math=Z"> should be
 
-$Z = sX_1 Q + t$
+<img src="https://render.githubusercontent.com/render/math?math=Z = sX_1 Q + t">
 
 ### 3. Test your codes (difficulty: :star:)
 
