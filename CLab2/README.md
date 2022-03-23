@@ -31,13 +31,13 @@ The steps in your code are:
 
 HINT: To perform this alignment, you need to perform an orthogonal procrustes analysis (check the link in the code for more details).The simplest algebraic statement of a Procrustes problem seeks a matrix <img src="https://render.githubusercontent.com/render/math?math=T">, that minimises,
 
-<img src="https://render.githubusercontent.com/render/math?math=Q^{opt}=\arg_{\{Q|Q^{-1}=Q^T\}}\min\||X_1Q - X_2||^2_F">
+<img src="https://render.githubusercontent.com/render/math?math=Q^{opt}=\arg_{\{Q|Q^{-1}=Q^T\}}\min ||X_1Q - X_2||^2_F">
 
 over <img src="https://render.githubusercontent.com/render/math?math=Q\in R^{p_1xp_2}">, for given <img src="https://render.githubusercontent.com/render/math?math=X_1\in R^{nxp_1}">, <img src="https://render.githubusercontent.com/render/math?math=X_2\in R^{nxp_2}">, where in our case <img src="https://render.githubusercontent.com/render/math?math=T"> is the orthogonal matrix <img src="https://render.githubusercontent.com/render/math?math=Q">. <img src="https://render.githubusercontent.com/render/math?math=X_1"> is the matrix to be matched into the reference matrix <img src="https://render.githubusercontent.com/render/math?math=X_2">.
 
 <img src="https://render.githubusercontent.com/render/math?math=Q"> refers to the matrix's rotation. To perform scaling and rotation, we need to solve a more elaborate problem,
 
-<img src="https://render.githubusercontent.com/render/math?math=(Q^{opt}, s^{opt}) =\arg_{\{(Q, s)|Q^{-1}=Q^T\}}\min\||sX_1Q - X_2||^2_F">
+<img src="https://render.githubusercontent.com/render/math?math=(Q^{opt}, s^{opt}) =\arg_{\{(Q, s)|Q^{-1}=Q^T\}}\min||sX_1Q - X_2||^2_F">
 
 and finally, the translation could be expressed as follows,
 
