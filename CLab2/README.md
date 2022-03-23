@@ -1,4 +1,4 @@
-# Coding Lab 1: MDS and Statistical Shape Analysis
+# Coding Lab 2: MDS and Statistical Shape Analysis
 
 ## Overview
 
