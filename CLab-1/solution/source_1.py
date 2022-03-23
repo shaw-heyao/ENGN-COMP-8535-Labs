@@ -56,6 +56,11 @@ def constrained_LLS1(A, B):
     x=x/np.linalg.norm(B@x)
     return x
     
+'''
+Let B=US(Vt) be the SVD of matrix B, 
+you can replace B with S(Vt) because left multiplication by orthogonal matrix U or Ut won't change the norm of any vector.
+In the script W is the inverse transpose of S(Vt)
+'''
 def constrained_LLS(A, B):
     '''
     inputs:
