@@ -1,4 +1,4 @@
-# Coding Lab 4 (10 marks)
+# Coding Lab 4
 
 ## Questions
 
