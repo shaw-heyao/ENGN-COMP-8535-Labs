@@ -30,7 +30,7 @@ Your `source.py` should be a self-contained file that includes only function def
   ```
   - Many optimisation problems are impossible to solve exactly on mordern computers (*e.g.* NP-hard), however a good approximation (suboptimal solution) can often be found efficiently.
 
-### 1. Compressive sensing (7.5 marks in total)
+### 1. Compressive sensing
 
 Given an m-dimensional vector x and an m-by-n sensing matrix A (m<n), your task is to find an as-sparse-as-possible vector x that satisfies y=Ax as well as possible, *i.e.* an x that contains minimal number of non-zero elements under <img src="https://render.githubusercontent.com/render/math?math=y\approx Ax">.
 
@@ -45,7 +45,7 @@ A vector x is called *s-sparse* if it has **at most** s nonzero element. Given s
 <img src="https://render.githubusercontent.com/render/math?math=\arg_x\min \|Ax-y\|_2\ s.t. \|x\|_0\le s">
 
 
-##### Brute-force solver (1.5 marks, difficulty: :star: :star: :star:)
+##### Brute-force solver (difficulty: :star: :star: :star:)
 Since there are at most <img src="https://render.githubusercontent.com/render/math?math=(^n_s)"> nonzero elements in x, a naive solution would be to enumerate all <img src="https://render.githubusercontent.com/render/math?math=(^n_s)"> possible subsets of nonzero elements. For each subset we may simply extract the correponding columns in A and solve a least square problem of s variables. Write a function `hard_sparsity_bf(A,y,s)` that loops through all <img src="https://render.githubusercontent.com/render/math?math=(^n_s)"> combinations of s nonzero coefficients, and returns the minimal s-sparse solution x. Consider how running time would change with increasing n and s.
 
 Hint: you can use below function to generate all <img src="https://render.githubusercontent.com/render/math?math=(^n_s)"> combinations of indices.
@@ -74,10 +74,10 @@ def combs_idx(n, k):
     return np.array(combs)
 ```
 
-##### Orthogonal Matching Pursuit (3 marks, difficulty: :star: :star: :star:)
+##### Orthogonal Matching Pursuit (difficulty: :star: :star: :star:)
 Now implement orthogonal matching pursuit in function `hard_sparsity_omp(A,y,s)`. Consider what advantages and disadvantages OMP has compared to the brute-force solver.
 
-#### Hard equality (3 marks, difficulty: :star: :star:)
+#### Hard equality (difficulty: :star: :star:)
 
 Now consider the other extreme where the equality y=Ax must hold. Complete the function `hard_equality_lp(A,y)` so it returns a vector x that strictly satisfies <img src="https://render.githubusercontent.com/render/math?math=Ax-y=\mathbf{0}"> but has as few nonzero elements as possible. 
 
@@ -95,6 +95,6 @@ Hint:
 python3 -m pip install cvxpy
 ```
 
-### 2. Test your codes (0 marks, difficulty: :star: :star:)
+### 2. Test your codes (difficulty: :star: :star:)
 
 A testing framework is provided in `main.py` for your convenience. You should modify it or write your own tests, however they will not be reflected in your marks.
